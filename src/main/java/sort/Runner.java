@@ -2,7 +2,7 @@ package main.java.sort;
 
 import main.java.sort.core.RowParser;
 import main.java.sort.core.RowUtils;
-import main.java.sort.model.Row;
+import main.java.sort.model.WholeRow;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -24,8 +24,8 @@ public class Runner {
 
     public void run() {
 
-        List<Row> rows = readData();
-        List<Map<Integer, Integer>> columns = getColumns(rows);
+        List<WholeRow> wholeRows = readData();
+        List<Map<Integer, Integer>> columns = getColumns(wholeRows);
 
         columns.stream().forEach(System.out::println);
 
@@ -33,47 +33,47 @@ public class Runner {
 
 
 
-    private List<Row> readData() {
-        String fileName = "C://Users//gshifris//IdeaProjects//Stat//src//main//resources//rows.txt";
-        List<Row> rows = new ArrayList<>();
+    private List<WholeRow> readData() {
+        String fileName = "C:\\Users\\Gennady V. Shifris\\IdeaProjects\\temproray\\src\\main\\resources\\wholeRows.txt";
+        List<WholeRow> wholeRows = new ArrayList<>();
 
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
 
-            return  stream.map(RowParser::parse).collect(Collectors.toCollection(ArrayList::new));
+            return  stream.map(RowParser::parseWholeRow).collect(Collectors.toCollection(ArrayList::new));
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return rows;
+        return wholeRows;
     }
 
-    private List<Map<Integer, Integer>> getColumns(List<Row> rows) {
+    private List<Map<Integer, Integer>> getColumns(List<WholeRow> wholeRows) {
 
         List<Map<Integer, Integer>> result = new LinkedList<>();
-        Map<Integer, Integer> first = RowUtils.sort(rows.stream().
-                collect(Collectors.toMap(Row::getFirst, p -> 1,
+        Map<Integer, Integer> first = RowUtils.sort(wholeRows.stream().
+                collect(Collectors.toMap(WholeRow::getFirst, p -> 1,
                         (oldValue, newValue) -> oldValue + newValue, TreeMap::new)));
-        Map<Integer, Integer> second = RowUtils.sort(rows.stream()
-                .collect(Collectors.toMap(Row::getSecond, p -> 1,
+        Map<Integer, Integer> second = RowUtils.sort(wholeRows.stream()
+                .collect(Collectors.toMap(WholeRow::getSecond, p -> 1,
                         (oldValue, newValue) -> oldValue + newValue, TreeMap::new)));
-        Map<Integer, Integer> third = RowUtils.sort(rows.stream()
-                .collect(Collectors.toMap(Row::getThird, p -> 1,
+        Map<Integer, Integer> third = RowUtils.sort(wholeRows.stream()
+                .collect(Collectors.toMap(WholeRow::getThird, p -> 1,
                         (oldValue, newValue) -> oldValue + newValue, TreeMap::new)));
-        Map<Integer, Integer> fourth = RowUtils.sort(rows.stream()
-                .collect(Collectors.toMap(Row::getFourth, p -> 1,
+        Map<Integer, Integer> fourth = RowUtils.sort(wholeRows.stream()
+                .collect(Collectors.toMap(WholeRow::getFourth, p -> 1,
                         (oldValue, newValue) -> oldValue + newValue, TreeMap::new)));
-        Map<Integer, Integer> fifth = RowUtils.sort(rows.stream()
-                .collect(Collectors.toMap(Row::getFifth, p -> 1,
+        Map<Integer, Integer> fifth = RowUtils.sort(wholeRows.stream()
+                .collect(Collectors.toMap(WholeRow::getFifth, p -> 1,
                         (oldValue, newValue) -> oldValue + newValue, TreeMap::new)));
-        Map<Integer, Integer> sixth = RowUtils.sort(rows.stream()
-                .collect(Collectors.toMap(Row::getSixth, p -> 1,
+        Map<Integer, Integer> sixth = RowUtils.sort(wholeRows.stream()
+                .collect(Collectors.toMap(WholeRow::getSixth, p -> 1,
                         (oldValue, newValue) -> oldValue + newValue, TreeMap::new)));
-        Map<Integer, Integer> seventh = RowUtils.sort(rows.stream()
-                .collect(Collectors.toMap(Row::getSeventh, p -> 1,
+        Map<Integer, Integer> seventh = RowUtils.sort(wholeRows.stream()
+                .collect(Collectors.toMap(WholeRow::getSeventh, p -> 1,
                         (oldValue, newValue) -> oldValue + newValue, TreeMap::new)));
-        Map<Integer, Integer> eigth = RowUtils.sort(rows.stream()
-                .collect(Collectors.toMap(Row::getEigth, p -> 1,
+        Map<Integer, Integer> eight = RowUtils.sort(wholeRows.stream()
+                .collect(Collectors.toMap(WholeRow::getEigth, p -> 1,
                         (oldValue, newValue) -> oldValue + newValue, TreeMap::new)));
 
         result.add(first);
@@ -83,16 +83,8 @@ public class Runner {
         result.add(fifth);
         result.add(sixth);
         result.add(seventh);
-        result.add(eigth);
+        result.add(eight);
 
         return result;
     }
-
-
-    //    private Map<Integer, Integer> rowsToColumn(List<Row> rows, Supplier<Integer> getElement) {
-//
-//        return RowUtils.sort(rows.stream()
-//                .collect(Collectors.toMap(getElement, p -> 1,
-//                        (oldValue, newValue) -> oldValue + newValue, TreeMap::new)));
-//    }
 }

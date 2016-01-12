@@ -1,9 +1,10 @@
 package main.java.sort.model;
 
+
 /**
  * Created by GShifris on 12/18/2015.
  */
-public class Row {
+public class WholeRow {
     private Integer first;
     private Integer second;
     private Integer third;
