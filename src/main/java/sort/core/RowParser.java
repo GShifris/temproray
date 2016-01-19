@@ -12,11 +12,8 @@ import java.util.List;
 public class RowParser {
 
     public static WholeRow parseWholeRow(String line) {
-
         String[] numbers = line.split(",");
-
         WholeRow wholeRow = new WholeRow();
-
         wholeRow.setFirst(Double.parseDouble(numbers[0]));
         wholeRow.setSecond(Double.parseDouble(numbers[1]));
         wholeRow.setThird(Double.parseDouble(numbers[2]));
@@ -25,13 +22,11 @@ public class RowParser {
         wholeRow.setSixth(Double.parseDouble(numbers[5]));
         wholeRow.setSeventh(Double.parseDouble(numbers[6]));
         wholeRow.setEigth(Double.parseDouble(numbers[7]));
-
         return wholeRow;
     }
 
     public static List<Number> adaptToNumbers(String line) {
         String[] numbers = line.split(",");
-
         return null;
     }
 

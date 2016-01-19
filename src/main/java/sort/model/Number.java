@@ -7,7 +7,6 @@ import java.util.TreeMap;
  * Created by Gennady V. Shifris on 10.01.2016.
  */
 public class Number implements Comparable<Number>{
-
     private Double value;
     private Map<Double, Double> subcollection = new TreeMap<>();
 
