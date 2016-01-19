@@ -25,16 +25,96 @@ public class Runner {
 
     public void run() {
 
-        List<WholeRow> wholeRows = readData();
-        List<Map<Integer, Integer>> columns = RowUtils.getColumns(wholeRows);
-        Set<Number> set = RowUtils.getValuesFromRow(wholeRows);
+//        List<WholeRow> wholeRows = readData();
+//        List<Map<Double, Double>> columns = RowUtils.getColumns(wholeRows);
+//        Set<Number> set = RowUtils.getValuesFromRow(wholeRows);
+//
+//        columns.stream().forEach(System.out::println);
+//        set.stream().forEach(System.out::println);
 
-        columns.stream().forEach(System.out::println);
-        set.stream().forEach(System.out::println);
+        zero();
+//        System.out.println("--///////////////////////////////////////////////////--");
+//        first();
+//        System.out.println("--///////////////////////////////////////////////////--");
+//        second();
 
     }
 
+    // http://umk.portal.kemsu.ru/uch-mathematics/papers/posobie/r4-3.htm
+    private void zero() {
 
+        List<WholeRow> wholeRows = readData();
+        List<Map<Double, Double>> columns = RowUtils.getColumns(wholeRows);
+
+        //probability
+        for (Map<Double, Double> column : columns) {
+            for (Map.Entry<Double, Double> value : column.entrySet()) {
+                value.setValue(((double) wholeRows.size() / 100D) * value.getValue());
+            }
+        }
+
+        columns.stream().forEach(System.out::println);
+
+    }
+
+    private void first() {
+
+        List<WholeRow> wholeRows = readData();
+
+        for (int i = 0; i < 50; i++) {
+            WholeRow rowToCompare = wholeRows.get(i);
+
+            List<WholeRow> rowsWithoutCurrentResult = new ArrayList<>(wholeRows.subList(i+1, wholeRows.size()));
+
+
+            List<Iterator<Double>> iterators = RowUtils.getIteratorsFromMap(rowsWithoutCurrentResult);
+            List<List<Double>> rows = RowUtils.generateSimple(iterators);
+
+            List<Double> result = new LinkedList<>();
+
+            for (List<Double> row : rows) {
+
+                result.add(RowUtils.compareTwoRows(row, rowToCompare));
+            }
+
+            rows.stream().forEach(System.out::println);
+
+            System.out.println(result);
+            System.out.println("--------------------------------------------------------------------------");
+        }
+    }
+
+    private void second() {
+
+        List<WholeRow> wholeRows = readData();
+
+        for (int i = 0; i < 50; i++) {
+            WholeRow rowToCompare = wholeRows.get(i);
+
+            List<WholeRow> rowsWithoutCurrentResult = new ArrayList<>(wholeRows.subList(i+1, wholeRows.size()));
+            List<Map<Double, Double>> columns = RowUtils.getColumns(rowsWithoutCurrentResult);
+            Set<Number> subCollections = RowUtils.getValuesFromRow(rowsWithoutCurrentResult);
+
+            List<List<Double>> rows = RowUtils.generate(columns.get(0), subCollections);
+
+            List<Double> result = new LinkedList<>();
+
+            for (List<Double> row : rows) {
+
+                result.add(RowUtils.compareTwoRows(row, rowToCompare));
+            }
+
+//            rows.stream().forEach(System.out::println);
+
+            System.out.println(result);
+            System.out.println("--------------------------------------------------------------------------");
+        }
+
+    }
+
+    private void third() {
+
+    }
 
     private List<WholeRow> readData() {
         String fileName = "C:\\Users\\gshifris\\IdeaProjects\\Stat\\src\\main\\resources\\rows.txt";

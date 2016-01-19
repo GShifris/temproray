@@ -5,76 +5,76 @@ package main.java.sort.model;
  * Created by GShifris on 12/18/2015.
  */
 public class WholeRow {
-    private Integer first;
-    private Integer second;
-    private Integer third;
-    private Integer fourth;
-    private Integer fifth;
-    private Integer sixth;
-    private Integer seventh;
-    private Integer eigth;
+    private Double first;
+    private Double second;
+    private Double third;
+    private Double fourth;
+    private Double fifth;
+    private Double sixth;
+    private Double seventh;
+    private Double eigth;
 
-    public Integer getFirst() {
+    public Double getFirst() {
         return first;
     }
 
-    public void setFirst(Integer first) {
+    public void setFirst(Double first) {
         this.first = first;
     }
 
-    public Integer getSecond() {
+    public Double getSecond() {
         return second;
     }
 
-    public void setSecond(Integer second) {
+    public void setSecond(Double second) {
         this.second = second;
     }
 
-    public Integer getThird() {
+    public Double getThird() {
         return third;
     }
 
-    public void setThird(Integer third) {
+    public void setThird(Double third) {
         this.third = third;
     }
 
-    public Integer getFourth() {
+    public Double getFourth() {
         return fourth;
     }
 
-    public void setFourth(Integer fourth) {
+    public void setFourth(Double fourth) {
         this.fourth = fourth;
     }
 
-    public Integer getFifth() {
+    public Double getFifth() {
         return fifth;
     }
 
-    public void setFifth(Integer fifth) {
+    public void setFifth(Double fifth) {
         this.fifth = fifth;
     }
 
-    public Integer getSixth() {
+    public Double getSixth() {
         return sixth;
     }
 
-    public void setSixth(Integer sixth) {
+    public void setSixth(Double sixth) {
         this.sixth = sixth;
     }
 
-    public Integer getSeventh() {
+    public Double getSeventh() {
         return seventh;
     }
 
-    public void setSeventh(Integer seventh) {
+    public void setSeventh(Double seventh) {
         this.seventh = seventh;
     }
 
-    public Integer getEigth() {
+    public Double getEigth() {
         return eigth;
     }
 
-    public void setEigth(Integer eigth) {
+    public void setEigth(Double eigth) {
         this.eigth = eigth;
     }
 }

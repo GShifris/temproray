@@ -8,26 +8,26 @@ import java.util.TreeMap;
  */
 public class Number implements Comparable<Number>{
 
-    private Integer value;
-    private Map<Integer, Integer> subcollection = new TreeMap<>();
+    private Double value;
+    private Map<Double, Double> subcollection = new TreeMap<>();
 
-    public Number(Integer value) {
+    public Number(Double value) {
         this.value = value;
     }
 
-    public Integer getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(Integer value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 
-    public Map<Integer, Integer> getSubcollection() {
+    public Map<Double, Double> getSubcollection() {
         return subcollection;
     }
 
-    public void setSubcollection(Map<Integer, Integer> subcollection) {
+    public void setSubcollection(Map<Double, Double> subcollection) {
         this.subcollection = subcollection;
     }
 

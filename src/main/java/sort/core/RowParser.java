@@ -17,14 +17,14 @@ public class RowParser {
 
         WholeRow wholeRow = new WholeRow();
 
-        wholeRow.setFirst(Integer.parseInt(numbers[0]));
-        wholeRow.setSecond(Integer.parseInt(numbers[1]));
-        wholeRow.setThird(Integer.parseInt(numbers[2]));
-        wholeRow.setFourth(Integer.parseInt(numbers[3]));
-        wholeRow.setFifth(Integer.parseInt(numbers[4]));
-        wholeRow.setSixth(Integer.parseInt(numbers[5]));
-        wholeRow.setSeventh(Integer.parseInt(numbers[6]));
-        wholeRow.setEigth(Integer.parseInt(numbers[7]));
+        wholeRow.setFirst(Double.parseDouble(numbers[0]));
+        wholeRow.setSecond(Double.parseDouble(numbers[1]));
+        wholeRow.setThird(Double.parseDouble(numbers[2]));
+        wholeRow.setFourth(Double.parseDouble(numbers[3]));
+        wholeRow.setFifth(Double.parseDouble(numbers[4]));
+        wholeRow.setSixth(Double.parseDouble(numbers[5]));
+        wholeRow.setSeventh(Double.parseDouble(numbers[6]));
+        wholeRow.setEigth(Double.parseDouble(numbers[7]));
 
         return wholeRow;
     }
